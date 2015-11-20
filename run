@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sudo puppet apply -v --modulepath ./modules --confdir ./files ./manifests/dev_env.pp
