@@ -1,0 +1,4 @@
+flashplugin-nonfree:
+  pkg:
+    - installed
+

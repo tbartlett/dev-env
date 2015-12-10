@@ -6,6 +6,8 @@ then
 	exit 1
 fi
 
+sed -i 's/^[ ]*deb cdrom.*//g' /etc/apt/sources.list
+
 apt-get update && apt-get install -y curl
 
 set +e
