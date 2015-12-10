@@ -30,5 +30,11 @@ dwarffortress:
     - require:
       - sls: tom
 
+configure_df:
+  cmd.script:
+    - name: configure_df
+    - source: salt://dwarffortress/configure.sh 
+    - require:
+      - archive: dwarffortress
 
 

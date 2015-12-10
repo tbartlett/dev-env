@@ -54,7 +54,3 @@ export PS1
 
 prompt_context () { }
 
-#[[ $-  != *i* ]] && return
-#[[ -z "$TMUX" ]] && exec tmux
-#
-
