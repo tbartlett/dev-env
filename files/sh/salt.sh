@@ -1,12 +1,17 @@
 #!/usr/bin/env sh
-
+set -eu
 if [ "$(id -u)" != "0" ]
 then
-	su
+	echo "Must run as root!"
+	exit 1
 fi
 
+apt-get update && apt-get install -y curl
+
+set +e
 dpkg -s salt-minion
 code=$?
+set -e
 
 if [ "$code" != "0" ]
 then 
