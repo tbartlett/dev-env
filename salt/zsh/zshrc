@@ -1,0 +1,60 @@
+# Auto start tmux (if not already in a tmux session)
+if [ -z "${TMUX+x}" ]
+then
+	tmux
+	exit 0
+fi
+
+# Path to your oh-my-zsh installation.
+export ZSH=/home/tom/.oh-my-zsh
+
+export RACKSPACE_USERNAME=
+export RACKSPACE_API_KEY=
+export RACKSPACE_PASSWORD=
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# History settings
+export HISTSIZE=100000
+export SAVEHIST=100000
+export APPEND_HISTORY
+export HIST_IGNORE_DUPS
+export HIST_IGNORE_SPACE
+export NO_HIST_BEEP
+
+ZSH_THEME="agnoster"
+
+
+plugins=(git)
+
+
+source $ZSH/oh-my-zsh.sh
+DEFAULT_USER=tom
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f ~/.zsh_aliases ]; then
+    . ~/.zsh_aliases
+fi
+
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
+eval "$(thefuck --alias pls)"
+
+autoload -U colors && colors
+NEWLINE=$'\n'
+GREEN=$'%{\e[1;32m%}'
+RESET=$'%{\e[0m%}'
+PS1="${PS1}${NEWLINE}${GREEN}${RESET} "
+export PS1
+
+prompt_context () { }
+
+#[[ $-  != *i* ]] && return
+#[[ -z "$TMUX" ]] && exec tmux
+#
+

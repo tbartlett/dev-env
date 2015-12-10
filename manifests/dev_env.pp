@@ -1,5 +1,5 @@
 class dev_env {
-    class { 'profile::vim': }
+    class { 'role::vim': }
 }
 
 include dev_env

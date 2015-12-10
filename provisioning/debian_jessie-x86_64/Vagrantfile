@@ -1,0 +1,10 @@
+# vi: set ft=ruby :
+
+$sh = '../../files/sh'
+Vagrant.configure(2) do |config|
+  config.vm.box = "debian/jessie64"
+
+  config.vm.synced_folder "../../salt/", "/srv/salt", type: "rsync"
+
+  config.vm.provision "shell", path: $sh + "/salt.sh"
+end
