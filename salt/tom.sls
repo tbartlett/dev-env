@@ -41,8 +41,41 @@ install_vim_plugins:
 
 ohmyzsh:
   cmd.run: 
-    - name: curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    - name: curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh 
     - user: tom
     - require:
       - sls: zsh
-      - user: tom 
+      - user: tom
+
+/home/tom/.config:
+  file.directory:
+    - user: tom
+    - group: tom
+    - mode: 0755
+
+xfce_config:
+  file.recurse:
+    - name: /home/tom/.config/xfce
+    - user: tom
+    - group: tom
+    - source: salt://xfce/config
+    - require:
+      - user: tom
+      - file: /home/tom/.config
+
+powerline:
+  git.latest:
+    - name: https://github.com/powerline/fonts.git
+    - target: /tmp/powerline
+    - user: tom
+    - require:
+      - pkg: git
+      - user: tom
+
+/tmp/powerline/install.sh:
+  cmd.run:
+    - user: tom
+    - creates: '/home/tom/.local/share/fonts/DejaVu Sans Mono for Powerline.ttf'
+    - require:
+      - git: powerline
+

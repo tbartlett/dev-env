@@ -5,3 +5,5 @@ base:
     - nvidia
     - flash
     - steam
+    - packages
+    - openttd

@@ -5,10 +5,13 @@
     - mode: 0744
     - user: root
     - group: root
+    - unless: dpkg -s nvidia-settings
 
 install_driver:
   cmd.run:
     - name: /opt/NVIDIA-Linux-x86_64-352.63.run --accept-license --update --silent --disable-nouveau --run-nvidia-xconfig 
+    - unless: dpkg -s nvidia-settings
+    - unless: true
     - require:
       - file: /opt/NVIDIA-Linux-x86_64-352.63.run
       - cmd: install_headers

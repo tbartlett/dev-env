@@ -1,14 +1,15 @@
-virtualbox
-vagrant
-java
+#virtualbox
+#vagrant
+#java
 thunderbird + config
 xfce panel config
-vlc
+#vlc
 openttd
 ksp
-wine
-rhythmbox
-keepassx
-libre-office
+#wine
+#rhythmbox
+#keepassx
+#libre-office
 firefox + plugins
-
+aliases
+#numlockx

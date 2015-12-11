@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Rhythmbox
+Comment=Play and organise your music collection
+Exec=rhythmbox %U
+Icon=rhythmbox
+Path=
+Terminal=false
+StartupNotify=true

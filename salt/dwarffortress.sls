@@ -1,18 +1,12 @@
 include:
   - tom
 
+# There's a bug in pkg where it can't correctly detect if 32bit packages are installed to 64bit system
 df_deps:
-  pkg.installed:
-    - normalize: False
+  cmd.run:
+    - name: apt-get install -y libsdl-image1.2:i386 libsdl-ttf2.0-0:i386 libgtk2.0-0:i386 libjpeg62-turbo:i386 libglu1-mesa:i386 libopenal1:i386
     - require:
       - cmd: arch_32
-    - pkgs:
-      - libsdl-image1.2:i386
-      - libsdl-ttf2.0-0:i386
-      - libgtk2.0-0:i386
-      - libjpeg62-turbo:i386
-      - libglu1-mesa:i386
-      - libopenal1:i386
 
 arch_32:
   cmd.run:
